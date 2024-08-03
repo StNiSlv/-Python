@@ -1,0 +1,20 @@
+Home = "Дом"
+immutable_var = (1, 2, [2, 1], Home)
+print(immutable_var)
+#immutable_var[2] = 5 # (Тип переменных кортеж не поддерживает обращение по элементам)
+mutable_list = [1, 2, "pizza", 4, 5]
+print(mutable_list)
+mutable_list[0] = "giro"
+print(mutable_list)
+mutable_list.append(False)
+print(mutable_list)
+mutable_list.extend("K#2!C")
+print(mutable_list)
+mutable_list.extend(["K#2!C"])
+print(mutable_list)
+mutable_list.remove("pizza")
+print(mutable_list)
+print("pizza" in mutable_list)
+print("pizza" not in mutable_list)
+print(mutable_list[0:3])
+print(mutable_list[5::-1])
