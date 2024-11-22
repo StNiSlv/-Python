@@ -3,7 +3,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 
-api = "Свой токен"
+api = "7757596943:AAFcIONrNKyvbErjJ7fBNvPrL40DVOd1exk"
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -23,7 +23,7 @@ keyboard.add(
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     await message.answer(
-        "Привет! Я бот, помогающий рассчитать норму калорий. Выберите действие:",
+        "Привет! Я бот, помогающий твоему здоровью",
         reply_markup=keyboard  # Отправляем клавиатуру
     )
 
@@ -62,7 +62,7 @@ async def send_calories(message: types.Message, state: FSMContext):
     growth = data['growth']
     weight = data['weight']
 
-    calories = 88.36 + (13.4 * weight) + (4.8 * growth) - (5.7 * age)
+    calories = 10 * weight + 6.25 * growth - 5 * age + 5
 
     await message.answer(f"Ваша норма калорий: {int(calories)} ккал.")
 
@@ -74,7 +74,7 @@ async def send_info(message: types.Message):
 
 @dp.message_handler()
 async def all_messages(message: types.Message):
-    await message.answer("Пожалуйста, выберите действие с помощью кнопок на клавиатуре. Для взаимодействия введите /start")
+    await message.answer("Введите команду /start чтобы начать общение")
 
 if __name__ == "__main__":
     executor.start_polling(dp, skip_updates=True)
